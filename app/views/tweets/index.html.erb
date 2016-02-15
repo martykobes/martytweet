@@ -1,0 +1,88 @@
+<p id="notice"><%= notice %></p>
+
+<div container>
+      <div class="row">
+          <div class="col-xs-3">
+              <div class="panel panel-primary">
+                <div class="panel-heading"><em>You Are</em></div>
+                  <div class="panel-body">
+                    <%= image_tag current_user.avatar.url(:thumb) %>
+                    <h3><%= current_user.name %></h3>
+                    <p><%= current_user.username %></p>
+                    <a href="#" class="btn btn-customs">Tweets</a>
+                    <a href="#" class="btn btn-customs">Following</a>
+                    <a href="#" class="btn btn-customs">Followers</a>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                      <div class="panel panel-primary">
+                          <div class="panel-body">
+                            <h4>Places to Vacation</h4>
+                            <ul>
+                              <li><%= link_to 'New York City', 'http://www.nycgo.com', target: '_blank' %></li>
+                              <li><%= link_to 'Key West', 'http://www.keywest.com', target: '_blank' %></li>
+                              <li><%= link_to 'Niagara Falls', 'http://www.niagarafallstourism.com', target: '_blank' %></li>
+                              <li><%= link_to 'Mexico', 'http://www.visitmexico.com', target: '_blank' %></li>
+                              <li><%= link_to 'Las Vegas', 'http://www.vegas.com', target: '_blank' %></li>
+                              <li><%= link_to 'Germany', 'http://www.germany.travel/en/index.html', target: '_blank' %></li>
+                              <li><%= link_to 'France', 'http://www.francetourism.com', target: '_blank' %></li>
+                              <li><%= link_to 'England', 'https://www.visitengland.com', target: '_blank' %></li>
+                              <li><%= link_to 'Portugal', 'https://www.visitportugal.com', target: '_blank' %></li>
+                              <li><%= link_to 'Spain', 'http://www.spain.info/en_US', target: '_blank' %></li>
+                              <li><%= link_to 'Hawaii', 'http://www.gohawaii.com', target: '_blank' %></li>
+                              <li><%= link_to 'Bahamas', 'http://www.bahamas.com', target: '_blank' %></li>
+                              <li><%= link_to 'Phillipines', 'http://www.itsmorefuninthephilippines.com', target: '_blank' %></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+        <div class="col-xs-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon3"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></span>
+                    <input type="text" class="form-control" placeholder="What's Happening?" aria-describedby="sizing-addon3">
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <% @tweet.each do |tweet| %>
+                    <h4><%= tweet.user.name %></h4>
+                    <p><%= tweet.user.username %></p>
+                    <%= image_tag tweet.avatar.url(:thumb), class: "img-responsive" %>
+                    <p> <%= tweet.message %></p>
+                    <%= link_to 'Show', tweet, class: "btn btn-custom"  %>
+                      <% if current_user.id == tweet.user_id %>
+                        <%= link_to 'Edit', edit_tweet_path(tweet), class: "btn btn-custom" %>
+                        <%= link_to 'Destroy',tweet, method: :delete, data: {confirm:'Are you sure?'}, class: "btn btn-dangers" %>
+                      <% end %>
+                  <% end %>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Who-to-follow</div>
+                <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, metus odio odio massa id ante, penatibus ipsum nunc non diamlorem eget. Lacus et purus quisque sapien magnis vestibulum, magnis varius lorem eros rerum. Rutrum viverra massa vivamus, parturient sit. Suspendisse metus tincidunt pellentesque, consequat duis auctor wisi, fusce iaculis tellus vestibulum. Ultrices torquent, quis pede, eros urna quisque amet magna adipiscing ut, ut suspendisse neque.
+                    </p>
+                    <a href="#" class="btn btn-custom">Sign Up Now!</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                  <div class="panel panel-primary">
+                      <div class="panel-body">
+                        <p>
+                          © 2016 Martytweets About Help Terms Privacy Cookies Ads info Brand Blog Status Apps Jobs Advertise Businesses Media Developers
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
