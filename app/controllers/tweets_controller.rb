@@ -3,7 +3,7 @@ class TweetsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @tweet = Tweet.all
+    @tweet = Tweet.all.order(created_at: :desc)
   end
 
   def new
