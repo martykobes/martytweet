@@ -10,6 +10,9 @@
   <strong>Created by: </strong>
   <%= @tweet.user.username %><p> on: <%= @tweet.created_at.strftime('%m/%d/%Y at %I:%M%p') %></p>
 </p>
+<p>
+
+<%= render 'shared/likes' %></p>
 <% if current_user.id == @tweet.user_id %>
 <%= link_to 'Edit', edit_tweet_path(@tweet), class: "btn btn-customs" %> |
 <% end %>
