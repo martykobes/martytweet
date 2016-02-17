@@ -1,15 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-
+<p><%= image_tag @tweet.avatar.url(:thumb) %></p>
 <p>
   <strong>Message:</strong>
   <%= @tweet.message %>
 </p>
-<p><%= image_tag @tweet.avatar.url(:thumb) %></p>
-<p>
-  <strong>User:</strong>
-  <%= @tweet.user.username %>
-</p>
 
+<p>
+  <strong>Created by: </strong>
+  <%= @tweet.user.username %><p> on: <%= @tweet.created_at.strftime('%m/%d/%Y at %I:%M%p') %></p>
+</p>
+<% if current_user.id == @tweet.user_id %>
 <%= link_to 'Edit', edit_tweet_path(@tweet), class: "btn btn-customs" %> |
+<% end %>
 <%= link_to 'Back', tweets_path, class: "btn btn-customs" %>

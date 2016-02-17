@@ -54,6 +54,7 @@
                     <p><%= tweet.user.username %></p>
                     <%= image_tag tweet.avatar.url(:thumb), class: "img-responsive" %>
                     <p> <%= tweet.message %></p>
+                    <p>Created on: <%= tweet.created_at.strftime('%m/%d/%Y at %I:%M%p') %></p>
                     <%= link_to 'Show', tweet, class: "btn btn-customs"  %>
                       <% if current_user.id == tweet.user_id %>
                         <%= link_to 'Edit', edit_tweet_path(tweet), class: "btn btn-customs" %>
