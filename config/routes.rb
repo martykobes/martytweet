@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :tweets do
     resource :like
   end
-  root 'tweets#index'
+  root 'profiles#feed'
 end
