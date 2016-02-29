@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="container">
@@ -5,6 +6,7 @@
         <ul class="nav nav-pills">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to 'Profiles', profiles_path %></li>
+          <li><%= link_to 'Places', tweets_path %></li>
           <li>
             <a href="#">Notifications</a>
           </li>
@@ -33,4 +35,6 @@
     </div>
   </div>
 
+
 </nav>
+<% end %>

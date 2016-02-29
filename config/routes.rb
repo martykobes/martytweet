@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   resources :relationships
   get 'profiles/:id' => 'profiles#show', as: :profile
   get 'profiles' => 'profiles#index'
+  get 'home' => 'profiles#feed'
+  get 'places' => 'tweets#index'
   resources :tweets do
     resource :like
   end
-  root 'profiles#feed'
+  root 'tweets#index'
 end

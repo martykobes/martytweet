@@ -6,7 +6,7 @@
    <%= f.text_field :name, autofocus: true, placeholder: "First and Last Name" %>
   </div><br />
 
-  <div class="field form-group">
+   <div class="field form-group">
    <%= f.text_field :username, placeholder: "@Username" %>
   </div><br />
 
@@ -32,6 +32,7 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
+
 
   <div class="field form-group">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />

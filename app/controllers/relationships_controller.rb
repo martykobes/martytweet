@@ -6,7 +6,7 @@ class RelationshipsController < ApplicationController
     @relationship = current_user.relationships.build(friend_id: params[:friend_id])
     if @relationship.save
       flash[:notice] = 'Followed successfully.'
-      redirect_to request.referrer
+      redirect_to root_path
     else
       flash[:notice] = 'Unable to follow.'
       redirect_to request.referrer
